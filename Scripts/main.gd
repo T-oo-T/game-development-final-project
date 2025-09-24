@@ -31,8 +31,5 @@ func _on_player_reached_flag() -> void:
 	if current_level_index == MAPS.size():
 		print("you win the game!")
 	else:
-		_load_level(current_level_index)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		# use call_deferred to get rid of warning
+		call_deferred("_load_level", current_level_index)

@@ -39,4 +39,7 @@ position = Vector2(99, -44)
 [node name="Coin" parent="." instance=ExtResource("5_henqf")]
 position = Vector2(63, -7)
 
+[node name="Coin2" parent="." instance=ExtResource("5_henqf")]
+position = Vector2(-43, 11)
+
 [connection signal="body_entered" from="Flag" to="." method="_on_flag_body_entered"]
