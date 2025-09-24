@@ -10,3 +10,6 @@ func set_lives(lives: int) -> void:
 		$Life.texture = load("res://Assets/Environment/life_half.png")
 	if lives == 0:
 		$Life.texture = load("res://Assets/Environment/life_empty.png")
+
+func set_bullet_count(bullet_count: int) -> void:
+	$BulletCount/Label.text = str(bullet_count)

@@ -53,5 +53,6 @@ position = Vector2(149, -30)
 [node name="Gun" parent="." instance=ExtResource("7_73eik")]
 position = Vector2(-63, -5)
 
+[connection signal="update_bullet_count" from="." to="." method="_on_update_bullet_count"]
 [connection signal="body_entered" from="Flag" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Gun" to="." method="_on_gun_body_entered"]

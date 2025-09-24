@@ -25,6 +25,7 @@ func _load_level(level_idx: int) -> void:
 	current_level.player_reached_flag.connect(_on_player_reached_flag)
 	current_level.update_score.connect(_update_score)
 	current_level.update_lives.connect(_update_lives)
+	current_level.update_bullet_count.connect(_update_bullet_count)
 	current_level.game_over.connect(_game_over)
 	add_child(current_level)
 	
@@ -32,6 +33,9 @@ func _game_over() -> void:
 	current_level_index = 0
 	_load_level(0)
 	
+func _update_bullet_count(bullet_count) -> void:
+	$UI.set_bullet_count(bullet_count)
+
 func _update_score(score) -> void:
 	$UI.set_score(score)
 	
