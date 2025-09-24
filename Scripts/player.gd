@@ -1,19 +1,18 @@
 class_name Player extends CharacterBody2D
 
+signal player_died
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 var jumping: bool
+var lives: int
 
 func _ready() -> void:
 	jumping = false
-
-func _die() -> void:
-	position = Vector2.ZERO
-
+	
 func _physics_process(delta: float) -> void:
 	if position.y > 1500:
-		_die()
+		player_died.emit()
 		
 	# Add the gravity.
 	if not is_on_floor():

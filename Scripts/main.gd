@@ -24,10 +24,14 @@ func _load_level(level_idx: int) -> void:
 	current_level = MAPS[level_idx].instantiate()
 	current_level.player_reached_flag.connect(_on_player_reached_flag)
 	current_level.update_score.connect(_update_score)
+	current_level.update_lives.connect(_update_lives)
 	add_child(current_level)
 	
 func _update_score(score) -> void:
 	$UI.set_score(score)
+	
+func _update_lives(lives) -> void:
+	$UI.set_lives(lives)
 
 func _on_player_reached_flag() -> void:
 	current_level_index += 1
