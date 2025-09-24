@@ -12,7 +12,7 @@ var current_level
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_level_index = 0
-	current_level = null
+	current_level = null	
 	_load_level(current_level_index)
 	
 func _load_level(level_idx: int) -> void:
@@ -23,8 +23,12 @@ func _load_level(level_idx: int) -> void:
 	# load new level
 	current_level = MAPS[level_idx].instantiate()
 	current_level.player_reached_flag.connect(_on_player_reached_flag)
+	current_level.update_score.connect(_update_score)
 	add_child(current_level)
 	
+func _update_score(score) -> void:
+	$UI.set_score(score)
+
 func _on_player_reached_flag() -> void:
 	current_level_index += 1
 	
