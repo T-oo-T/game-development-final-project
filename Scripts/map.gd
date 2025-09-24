@@ -3,6 +3,7 @@ class_name Map extends Node2D
 signal player_reached_flag
 signal update_score(score: int)
 signal update_lives(lives: int)
+signal game_over
 
 var score: int
 var player: Player
@@ -25,6 +26,9 @@ func _player_died() -> void:
 	player.lives -= 1
 	player.position = Vector2.ZERO
 	update_lives.emit(player.lives)
+	if (player.lives == 0):
+		game_over.emit()
+		
 	print(player.lives)
 
 func _player_collected_coin() -> void:
