@@ -36,6 +36,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
+	if Input.is_action_just_pressed("shoot"):
+		print("shoot")
+		_play_animation("shoot")
+		
+	
 	# Handle direction	
 	var direction := Input.get_axis("left", "right")
 	if direction:

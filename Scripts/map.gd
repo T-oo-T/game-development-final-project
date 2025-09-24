@@ -7,6 +7,7 @@ signal game_over
 
 var score: int
 var player: Player
+var gun: Gun
 
 func _ready() -> void:
 	score = 0
@@ -15,6 +16,8 @@ func _ready() -> void:
 			child.player_entered_coin.connect(_player_collected_coin)
 		if child is Player:
 			player = child
+		if child is Gun:
+			gun = child
 	player.lives = 2
 	player.player_died.connect(_player_died)	
 	update_score.emit(score)
@@ -42,5 +45,5 @@ func _on_flag_body_entered(body: Node2D) -> void:
 
 func _on_gun_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("player picked gun")	
+		gun.queue_free()
 		player.has_gun = true
