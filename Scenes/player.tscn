@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8lppdth0a2ff"]
+[gd_scene load_steps=17 format=3 uid="uid://b8lppdth0a2ff"]
 
 [ext_resource type="Texture2D" uid="uid://cj8e88ciutktd" path="res://Assets/Player/player_idle.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dqut12yg4tw2d" path="res://Scripts/player.gd" id="1_onrkg"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://vhjb32w06l0v" path="res://Assets/Player/player_gun_idle.png" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://cqcaiolt1quwp" path="res://Assets/Player/player_gun_move.png" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://dm1k12xvg5xhs" path="res://Assets/Player/player_gun_shoot.png" id="6_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://1dwyapexo7ub" path="res://Assets/Environment/gun_blast.png" id="7_3smsa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3ir5"]
 radius = 4.0
@@ -26,17 +25,67 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_4flbx")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GunBlast:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "gun_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [ExtResource("4_vgqql")]
+}
+
+[sub_resource type="Animation" id="Animation_3smsa"]
+resource_name = "gun_jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_fkybt")]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "gun_run"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_fkybt"), ExtResource("4_vgqql")]
+}
+
+[sub_resource type="Animation" id="Animation_8erm5"]
+resource_name = "gun_shoot"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_x3wgy"), ExtResource("4_vgqql")]
 }
 
 [sub_resource type="Animation" id="Animation_onrkg"]
@@ -85,80 +134,6 @@ tracks/0/keys = {
 "values": [ExtResource("3_i3pqv"), ExtResource("1_4flbx")]
 }
 
-[sub_resource type="Animation" id="Animation_fkybt"]
-resource_name = "gun_idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_vgqql")]
-}
-
-[sub_resource type="Animation" id="Animation_x3wgy"]
-resource_name = "gun_run"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("5_fkybt"), ExtResource("4_vgqql")]
-}
-
-[sub_resource type="Animation" id="Animation_3smsa"]
-resource_name = "gun_jump"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_fkybt")]
-}
-
-[sub_resource type="Animation" id="Animation_8erm5"]
-resource_name = "gun_shoot"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("6_x3wgy"), ExtResource("4_vgqql")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GunBlast:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sweqy"]
 _data = {
 &"RESET": SubResource("Animation_i3pqv"),
@@ -188,8 +163,3 @@ root_node = NodePath("../Camera2D")
 libraries = {
 &"": SubResource("AnimationLibrary_sweqy")
 }
-
-[node name="GunBlast" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(14, 3)
-texture = ExtResource("7_3smsa")

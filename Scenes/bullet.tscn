@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3hlu44wmhrk8"]
+
+[ext_resource type="Texture2D" uid="uid://1dwyapexo7ub" path="res://Assets/Environment/gun_blast.png" id="1_oduel"]
+[ext_resource type="Script" uid="uid://cqgak8j8jsv6s" path="res://Scripts/bullet.gd" id="1_ycag2"]
+[ext_resource type="Texture2D" uid="uid://prooby7tktby" path="res://Assets/Environment/gun_bullet.png" id="2_ycag2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odot3"]
+size = Vector2(11, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycag2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oduel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ycag2")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 3.0
+}]
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_ycag2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_odot3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ycag2")
+animation = &"shoot"
+frame = 1
+frame_progress = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

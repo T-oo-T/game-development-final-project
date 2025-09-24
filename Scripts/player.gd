@@ -34,12 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
-	if Input.is_action_just_pressed("shoot"):
-		print("shoot")
-		_play_animation("shoot")
-		
+		velocity.y = JUMP_VELOCITY	
 	
 	# Handle direction	
 	var direction := Input.get_axis("left", "right")
@@ -54,5 +49,11 @@ func _physics_process(delta: float) -> void:
 			_play_animation("idle")
 			
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	# TODO: add some kind of cooldown to shooting
+	if has_gun and Input.is_action_just_pressed("shoot"):
+		print("shoot")
+		_play_animation("shoot")
+		
 
 	move_and_slide()
