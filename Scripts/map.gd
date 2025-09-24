@@ -43,3 +43,4 @@ func _on_flag_body_entered(body: Node2D) -> void:
 func _on_gun_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("player picked gun")	
+		player.has_gun = true

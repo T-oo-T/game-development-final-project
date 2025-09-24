@@ -1,12 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8lppdth0a2ff"]
+[gd_scene load_steps=15 format=3 uid="uid://b8lppdth0a2ff"]
 
 [ext_resource type="Texture2D" uid="uid://cj8e88ciutktd" path="res://Assets/Player/player_idle.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dqut12yg4tw2d" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dvlfth8e55kcj" path="res://Assets/Player/player_move.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://vhjb32w06l0v" path="res://Assets/Player/player_gun_idle.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://cqcaiolt1quwp" path="res://Assets/Player/player_gun_move.png" id="5_fkybt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p3ir5"]
 radius = 4.0
 height = 12.0
+
+[sub_resource type="Animation" id="Animation_i3pqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_4flbx")]
+}
 
 [sub_resource type="Animation" id="Animation_onrkg"]
 resource_name = "idle"
@@ -23,8 +40,8 @@ tracks/0/keys = {
 "values": [ExtResource("1_4flbx")]
 }
 
-[sub_resource type="Animation" id="Animation_i3pqv"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "jump"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,7 +52,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_4flbx")]
+"values": [ExtResource("3_i3pqv")]
 }
 
 [sub_resource type="Animation" id="Animation_hqtel"]
@@ -54,8 +71,8 @@ tracks/0/keys = {
 "values": [ExtResource("3_i3pqv"), ExtResource("1_4flbx")]
 }
 
-[sub_resource type="Animation" id="Animation_sweqy"]
-resource_name = "jump"
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "gun_idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,12 +83,46 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_i3pqv")]
+"values": [ExtResource("4_vgqql")]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "gun_run"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_fkybt"), ExtResource("4_vgqql")]
+}
+
+[sub_resource type="Animation" id="Animation_3smsa"]
+resource_name = "gun_jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_fkybt")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sweqy"]
 _data = {
 &"RESET": SubResource("Animation_i3pqv"),
+&"gun_idle": SubResource("Animation_fkybt"),
+&"gun_jump": SubResource("Animation_3smsa"),
+&"gun_run": SubResource("Animation_x3wgy"),
 &"idle": SubResource("Animation_onrkg"),
 &"jump": SubResource("Animation_sweqy"),
 &"run": SubResource("Animation_hqtel")

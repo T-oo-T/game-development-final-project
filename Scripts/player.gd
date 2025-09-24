@@ -6,12 +6,20 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 var jumping: bool
 var lives: int
+var has_gun: bool
 
 func _ready() -> void:
 	jumping = false
+	has_gun = false
 	
 func die() -> void:
 	player_died.emit()
+	
+func _play_animation(animation: String) -> void:
+	if has_gun:
+		$AnimationPlayer.play("gun_" + animation)
+	else:
+		$AnimationPlayer.play(animation)
 		
 func _physics_process(delta: float) -> void:
 	if position.y > 1500:
@@ -31,14 +39,14 @@ func _physics_process(delta: float) -> void:
 	# Handle direction	
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		$AnimationPlayer.play("run")
+		_play_animation("run")
 		velocity.x = direction * SPEED
 		$Sprite2D.flip_h = direction == -1.0
 	else:
 		if jumping:
-			$AnimationPlayer.play("jump")
+			_play_animation("jump")
 		else:
-			$AnimationPlayer.play("idle")
+			_play_animation("idle")
 			
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
