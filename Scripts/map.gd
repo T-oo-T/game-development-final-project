@@ -16,7 +16,7 @@ func _ready() -> void:
 		if child is Player:
 			player = child
 	player.lives = 2
-	player.player_died.connect(_player_died)
+	player.player_died.connect(_player_died)	
 	update_score.emit(score)
 	update_lives.emit(player.lives)
 
@@ -38,3 +38,8 @@ func _player_collected_coin() -> void:
 func _on_flag_body_entered(body: Node2D) -> void:
 	if body is Player:
 		player_reached_flag.emit()
+
+
+func _on_gun_body_entered(body: Node2D) -> void:
+	if body is Player:
+		print("player picked gun")	
