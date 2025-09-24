@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://prooby7tktby" path="res://Assets/Environment/gun_bullet.png" id="2_ycag2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odot3"]
-size = Vector2(11, 6)
+size = Vector2(6, 2)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ycag2"]
 animations = [{
@@ -25,10 +25,10 @@ animations = [{
 script = ExtResource("1_ycag2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_odot3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ycag2")
 animation = &"shoot"
 frame = 1

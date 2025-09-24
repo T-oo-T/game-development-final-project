@@ -7,10 +7,13 @@ const JUMP_VELOCITY = -300.0
 var jumping: bool
 var lives: int
 var has_gun: bool
+var BulletScene = preload("res://Scenes/bullet.tscn")
+var facing_right: bool
 
 func _ready() -> void:
 	jumping = false
 	has_gun = false
+	facing_right = true
 	
 func die() -> void:
 	player_died.emit()
@@ -41,7 +44,8 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		_play_animation("run")
 		velocity.x = direction * SPEED
-		$Sprite2D.flip_h = direction == -1.0
+		facing_right = direction == 1.0
+		$Sprite2D.flip_h = not facing_right
 	else:
 		if jumping:
 			_play_animation("jump")
@@ -52,8 +56,13 @@ func _physics_process(delta: float) -> void:
 
 	# TODO: add some kind of cooldown to shooting
 	if has_gun and Input.is_action_just_pressed("shoot"):
-		print("shoot")
 		_play_animation("shoot")
+		var bullet = BulletScene.instantiate()
+		bullet.facing_right = facing_right
+		# match bullets position with the gun
+		bullet.position.x = position.x + (10 if facing_right else -10)
+		bullet.position.y = position.y + 4
+		get_tree().root.add_child(bullet)
 		
 
 	move_and_slide()

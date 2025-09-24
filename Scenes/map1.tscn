@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d07weobqt1kwp"]
+[gd_scene load_steps=10 format=4 uid="uid://d07weobqt1kwp"]
 
 [ext_resource type="Texture2D" uid="uid://d4cyvicdvhvg7" path="res://Assets/tilemap.png" id="1_ci6au"]
 [ext_resource type="Script" uid="uid://iq7kopfy1d7y" path="res://Scripts/map.gd" id="1_xgpx1"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://v2c3fspwrw7a" path="res://Scenes/coin.tscn" id="5_0650q"]
 [ext_resource type="PackedScene" uid="uid://c5eqkl4qxymt1" path="res://Scenes/robo.tscn" id="6_rxi31"]
 [ext_resource type="PackedScene" uid="uid://bxsfb1x50qvke" path="res://Scenes/gun.tscn" id="7_73eik"]
-[ext_resource type="PackedScene" uid="uid://c3hlu44wmhrk8" path="res://Scenes/bullet.tscn" id="8_wouuh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
 texture = ExtResource("1_ci6au")
@@ -53,9 +52,6 @@ position = Vector2(149, -30)
 
 [node name="Gun" parent="." instance=ExtResource("7_73eik")]
 position = Vector2(-63, -5)
-
-[node name="Bullet" parent="." instance=ExtResource("8_wouuh")]
-position = Vector2(18, -26)
 
 [connection signal="body_entered" from="Flag" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Gun" to="." method="_on_gun_body_entered"]
