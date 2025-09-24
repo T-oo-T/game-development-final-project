@@ -10,9 +10,12 @@ var lives: int
 func _ready() -> void:
 	jumping = false
 	
+func die() -> void:
+	player_died.emit()
+		
 func _physics_process(delta: float) -> void:
 	if position.y > 1500:
-		player_died.emit()
+		die()
 		
 	# Add the gravity.
 	if not is_on_floor():

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://d07weobqt1kwp"]
+[gd_scene load_steps=9 format=4 uid="uid://d07weobqt1kwp"]
 
 [ext_resource type="Texture2D" uid="uid://d4cyvicdvhvg7" path="res://Assets/tilemap.png" id="1_ci6au"]
 [ext_resource type="Script" uid="uid://iq7kopfy1d7y" path="res://Scripts/map.gd" id="1_xgpx1"]
 [ext_resource type="PackedScene" uid="uid://b8lppdth0a2ff" path="res://Scenes/player.tscn" id="2_26yhd"]
 [ext_resource type="PackedScene" uid="uid://yyc52bpuceih" path="res://Scenes/flag.tscn" id="4_0650q"]
 [ext_resource type="PackedScene" uid="uid://v2c3fspwrw7a" path="res://Scenes/coin.tscn" id="5_0650q"]
+[ext_resource type="PackedScene" uid="uid://c5eqkl4qxymt1" path="res://Scenes/robo.tscn" id="6_rxi31"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
 texture = ExtResource("1_ci6au")
@@ -30,7 +31,7 @@ sources/0 = SubResource("TileSetAtlasSource_26yhd")
 script = ExtResource("1_xgpx1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAD//wEAAAACAAAAAAD+/wEAAAACAAAAAAABAAEAAAACAAAAAAD9/wEAAAABAAAAAAACAAEAAAADAAAAAAD8/wAAAAAAAAAAAAD7////AAAAAAAAAAD6//7/AAADAAAAAAD5//7/AAACAAAAAAD4//7/AAACAAAAAAD3//7/AAACAAAAAAD2//7/AAABAAAAAAABAAAAAAAEAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAD//wEAAAACAAAAAAD+/wEAAAACAAAAAAABAAEAAAACAAAAAAD9/wEAAAABAAAAAAACAAEAAAADAAAAAAD8/wAAAAAAAAAAAAD7////AAAAAAAAAAD6//7/AAADAAAAAAD5//7/AAACAAAAAAD4//7/AAACAAAAAAD3//7/AAACAAAAAAD2//7/AAABAAAAAAABAAAAAAAEAAQAAAADAAAAAAAAAAAAAAAEAP//AAABAAAAAAAFAP//AAACAAAAAAAGAP//AAACAAAAAAAHAP//AAACAAAAAAAIAP//AAADAAAAAAA=")
 tile_set = SubResource("TileSet_58wgy")
 
 [node name="Player" parent="." instance=ExtResource("2_26yhd")]
@@ -44,5 +45,8 @@ position = Vector2(-98, -43)
 
 [node name="Coin2" parent="." instance=ExtResource("5_0650q")]
 position = Vector2(-138, -43)
+
+[node name="Robo" parent="." instance=ExtResource("6_rxi31")]
+position = Vector2(149, -30)
 
 [connection signal="body_entered" from="Flag" to="." method="_on_flag_body_entered"]
