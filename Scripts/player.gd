@@ -16,9 +16,10 @@ func _ready() -> void:
 	jumping = false
 	has_gun = false
 	facing_right = true
-	bullet_count = 3
+	bullet_count = 0
 	
 func die() -> void:
+	Sound.play("gameover")
 	player_died.emit()
 	
 func _play_animation(animation: String) -> void:
@@ -41,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY	
+		Sound.play("jump")
 	
 	# Handle direction	
 	var direction := Input.get_axis("left", "right")

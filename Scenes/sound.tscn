@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs7422u8t0lgx"]
+
+[ext_resource type="Script" uid="uid://7u3hwmiy0o4s" path="res://Scripts/sound.gd" id="1_mtqot"]
+[ext_resource type="AudioStream" uid="uid://dtndf8o52m3p2" path="res://Assets/Audio/laser1.ogg" id="2_2kjdv"]
+[ext_resource type="AudioStream" uid="uid://c5mj4uklijh7n" path="res://Assets/Audio/laser2.ogg" id="3_q5m1g"]
+[ext_resource type="AudioStream" uid="uid://d2ubhw7djpkef" path="res://Assets/Audio/laser3.ogg" id="4_wnvds"]
+[ext_resource type="AudioStream" uid="uid://bka4go26rd3w4" path="res://Assets/Audio/phaseJump1.ogg" id="5_cacp3"]
+[ext_resource type="AudioStream" uid="uid://cy4wiscbd6sf7" path="res://Assets/Audio/impactPlank_medium_000.ogg" id="6_cacp3"]
+[ext_resource type="AudioStream" uid="uid://cll7qdbdntrp6" path="res://Assets/Audio/jingles_SAX12.ogg" id="7_8pcss"]
+[ext_resource type="AudioStream" uid="uid://bksw0400mfrs2" path="res://Assets/Audio/impactGlass_medium_001.ogg" id="7_seelm"]
+[ext_resource type="AudioStream" uid="uid://bjuaa7jvjlt3e" path="res://Assets/Audio/jingles_STEEL15.ogg" id="9_k2qco"]
+
+[node name="Sound" type="Node2D"]
+script = ExtResource("1_mtqot")
+
+[node name="shoot1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2kjdv")
+
+[node name="shoot2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q5m1g")
+
+[node name="shoot3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wnvds")
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cacp3")
+
+[node name="impact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_cacp3")
+
+[node name="gunhit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_seelm")
+
+[node name="gameover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8pcss")
+
+[node name="levelover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_k2qco")

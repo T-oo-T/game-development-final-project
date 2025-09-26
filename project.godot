@@ -15,6 +15,10 @@ run/main_scene="uid://cmgim5fs2u6v4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Sound="*res://Scenes/sound.tscn"
+
 [display]
 
 window/size/viewport_width=1280

@@ -13,6 +13,7 @@ func _ready() -> void:
 	lifetime.start()
 	lifetime.timeout.connect(_on_lifetime_end)
 	$AnimatedSprite2D.play("shoot")
+	Sound.play(["shoot1","shoot2","shoot3"].pick_random())
 	
 func _on_lifetime_end() -> void:
 	queue_free()
@@ -28,4 +29,5 @@ func _on_body_entered(body: Node2D) -> void:
 		queue_free()
 		
 	if body is Robo:
+		Sound.play("gunhit")
 		body.queue_free()

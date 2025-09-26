@@ -24,6 +24,7 @@ func _ready() -> void:
 	player.player_shot_gun.connect(_player_shot_gun)
 	update_score.emit(score)
 	update_lives.emit(player.lives)
+	update_bullet_count.emit(player.bullet_count)
 
 
 	
@@ -45,10 +46,12 @@ func _player_shot_gun(bullet_count) -> void:
 
 func _on_flag_body_entered(body: Node2D) -> void:
 	if body is Player:
+		Sound.play("levelover")
 		player_reached_flag.emit()
 
 func _on_gun_body_entered(body: Node2D) -> void:
 	if body is Player:
 		gun.queue_free()
 		player.has_gun = true
+		player.bullet_count = 3
 		update_bullet_count.emit(body.bullet_count)
