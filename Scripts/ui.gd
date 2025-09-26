@@ -1,5 +1,6 @@
 class_name UI extends CanvasLayer
 
+# TODO: make UI and background scale when maximizing game
 func set_score(score: int) -> void:
 	$Score/Label.text = str(score)
 

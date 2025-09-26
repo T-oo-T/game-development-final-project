@@ -23,8 +23,8 @@ anchor_right = 0.064
 anchor_bottom = 1.0
 offset_left = -0.600002
 offset_top = 36.5599
-offset_right = -16.92
-offset_bottom = -30.0
+offset_right = -2.36001
+offset_bottom = 30.6399
 
 [node name="Sprite2D" type="Sprite2D" parent="Score"]
 position = Vector2(-0.799995, 93.2802)
@@ -48,8 +48,8 @@ anchor_right = 0.064
 anchor_bottom = 1.0
 offset_left = 96.6
 offset_top = 85.84
-offset_right = 80.28
-offset_bottom = 19.2802
+offset_right = 94.84
+offset_bottom = 79.92
 
 [node name="Sprite2D" type="Sprite2D" parent="BulletCount"]
 position = Vector2(9, 44)
