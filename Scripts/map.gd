@@ -39,7 +39,7 @@ func _player_died() -> void:
 
 func _player_collected_coin() -> void:
 	score += 1
-	update_score.emit(score)
+	update_score.emit(score)	
 	
 func _player_shot_gun(bullet_count) -> void:
 	update_bullet_count.emit(bullet_count)
