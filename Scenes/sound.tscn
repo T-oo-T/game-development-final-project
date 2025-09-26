@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs7422u8t0lgx"]
+[gd_scene load_steps=11 format=3 uid="uid://bs7422u8t0lgx"]
 
 [ext_resource type="Script" uid="uid://7u3hwmiy0o4s" path="res://Scripts/sound.gd" id="1_mtqot"]
 [ext_resource type="AudioStream" uid="uid://dtndf8o52m3p2" path="res://Assets/Audio/laser1.ogg" id="2_2kjdv"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://cll7qdbdntrp6" path="res://Assets/Audio/jingles_SAX12.ogg" id="7_8pcss"]
 [ext_resource type="AudioStream" uid="uid://bksw0400mfrs2" path="res://Assets/Audio/impactGlass_medium_001.ogg" id="7_seelm"]
 [ext_resource type="AudioStream" uid="uid://bjuaa7jvjlt3e" path="res://Assets/Audio/jingles_STEEL15.ogg" id="9_k2qco"]
+[ext_resource type="AudioStream" uid="uid://bbkf7nr41sqgi" path="res://Assets/Audio/powerUp2.ogg" id="10_jks8p"]
 
 [node name="Sound" type="Node2D"]
 script = ExtResource("1_mtqot")
@@ -36,3 +37,6 @@ stream = ExtResource("7_8pcss")
 
 [node name="levelover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_k2qco")
+
+[node name="coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_jks8p")
