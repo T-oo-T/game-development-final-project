@@ -46,7 +46,7 @@ func _player_shot_gun(bullet_count) -> void:
 
 func _on_flag_body_entered(body: Node2D) -> void:
 	if body is Player:
-		Sound.play("levelover")
+		Sound.play("level_over")
 		player_reached_flag.emit()
 
 func _on_gun_body_entered(body: Node2D) -> void:

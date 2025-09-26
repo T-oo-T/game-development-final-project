@@ -1,1 +1,4 @@
 Final project for Fundamentals of game development course (https://fitech.io/en/studies/fundamentals-of-game-development-lut/).
+
+Game assets such as tilemaps, characters and sound effects by Kenney (https://kenney.nl/)
+Music by Abstraction (https://tallbeard.itch.io/music-loop-bundle) 

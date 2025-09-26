@@ -19,7 +19,7 @@ func _ready() -> void:
 	bullet_count = 0
 	
 func die() -> void:
-	Sound.play("gameover")
+	Sound.play("game_over")
 	player_died.emit()
 	
 func _play_animation(animation: String) -> void:
