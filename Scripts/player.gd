@@ -29,7 +29,7 @@ func _play_animation(animation: String) -> void:
 		$AnimationPlayer.play(animation)
 		
 func _physics_process(delta: float) -> void:
-	if position.y > 1500:
+	if position.y > 300:
 		die()
 		
 	# Add the gravity.

@@ -28,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxr6s"]
-size = Vector2(14, 11)
+size = Vector2(16, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w7is"]
 size = Vector2(18, 14)
@@ -42,7 +42,7 @@ sprite_frames = SubResource("SpriteFrames_au2jy")
 animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_hxr6s")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

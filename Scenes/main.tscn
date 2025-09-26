@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmgim5fs2u6v4"]
+[gd_scene load_steps=4 format=3 uid="uid://cmgim5fs2u6v4"]
 
 [ext_resource type="Script" uid="uid://4htuebqwoyt6" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dlidchxi6n5jp" path="res://Scenes/ui.tscn" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://2vbfoi4tv4qr" path="res://Assets/Background/backgroundColorGrass.png" id="3_8gbba"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_bo1nx")
 
 [node name="UI" parent="." instance=ExtResource("2_bo1nx")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-34, -233)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_8gbba")
+centered = false
