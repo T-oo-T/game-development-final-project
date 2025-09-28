@@ -5,6 +5,7 @@ signal update_score(score: int)
 signal update_bullet_count(bullet_count: int)
 signal update_lives(lives: int)
 signal game_over
+signal player_died
 
 var score: int
 var player: Player
@@ -19,24 +20,15 @@ func _ready() -> void:
 			player = child
 		if child is Gun:
 			gun = child
-	player.lives = 2
 	player.player_died.connect(_player_died)	
 	player.player_shot_gun.connect(_player_shot_gun)
 	update_score.emit(score)
-	update_lives.emit(player.lives)
+	update_lives.emit(Gamestate.lives)
 	update_bullet_count.emit(player.bullet_count)
-
-
 	
 func _player_died() -> void:
-	player.lives -= 1
-	player.position = Vector2.ZERO
-	update_lives.emit(player.lives)
-	if (player.lives == 0):
-		game_over.emit()
-		
-	print(player.lives)
-
+	player_died.emit()
+	
 func _player_collected_coin() -> void:
 	score += 1
 	update_score.emit(score)	
@@ -50,7 +42,6 @@ func _on_gun_body_entered(body: Node2D) -> void:
 		player.has_gun = true
 		player.bullet_count = 3
 		update_bullet_count.emit(body.bullet_count)
-
 
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body is Player:

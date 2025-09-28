@@ -14,12 +14,13 @@ var elapsed_time: float
 var stats
 var best_times
 var current_times
+var lives
 const FILE_PATH = "user://stats.txt"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_level = null	
-	current_level_index = 0
+	current_level_index = 1
 	elapsed_time = 0
 	#print(OS.get_data_dir())
 	
@@ -45,7 +46,7 @@ func _load_level(level_idx: int) -> void:
 	current_level.update_score.connect(_update_score)
 	current_level.update_lives.connect(_update_lives)
 	current_level.update_bullet_count.connect(_update_bullet_count)
-	current_level.game_over.connect(_restart_game)
+	current_level.player_died.connect(_on_player_died)
 	add_child(current_level)
 	
 	# start timer
@@ -57,6 +58,7 @@ func _load_level(level_idx: int) -> void:
 	game_timer.start()
 	add_child(game_timer)
 	
+	_update_lives(Gamestate.lives)
 	$UI.set_best_time(best_times[level_idx])
 	
 	
@@ -67,7 +69,15 @@ func _update_elapsed_time() -> void:
 	
 func _restart_game() -> void:
 	current_level_index = 0
-	_load_level(0)
+	Gamestate.lives = 2
+	_load_level(current_level_index)
+	
+func _on_player_died() -> void:
+	if (Gamestate.lives == 0):
+		_restart_game()
+	else:
+		Gamestate.lives -= 1
+		_load_level(current_level_index)
 	
 func _update_bullet_count(bullet_count) -> void:
 	$UI.set_bullet_count(bullet_count)

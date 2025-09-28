@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		var direction = towardsPlayer.normalized()	
 		velocity.x = direction[0] * speed
 		velocity.y = direction[1] * speed
-	elif towardsPlayer.length() < 50:
+	elif towardsPlayer.length() < 75:
 		state = STATE_CHASE
 
 	move_and_slide()

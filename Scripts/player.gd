@@ -6,7 +6,6 @@ signal player_shot_gun(bullet_count: int)
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 var jumping: bool
-var lives: int
 var has_gun: bool
 var BulletScene = preload("res://Scenes/bullet.tscn")
 var facing_right: bool
