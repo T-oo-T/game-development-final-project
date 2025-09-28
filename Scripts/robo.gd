@@ -13,26 +13,36 @@ var STATE_PATROL = 1
 	
 func _ready() -> void:
 	state = STATE_SLEEP
-	$AnimatedSprite2D.play("sleep")
 	player = get_parent().get_children().filter(func (child) -> bool:
 		return child is Player
 	)[0]
 	
-func _physics_process(delta: float) -> void:
-	if state == STATE_PATROL:
-		if !is_on_floor():
-			velocity.y += GRAVITY * delta
-		
-		if !ray.is_colliding() and is_on_floor():
-			flip()
-		
-		velocity.x = speed
-		$AnimatedSprite2D.play("move")
-	elif (player.global_position - global_position).length() < 100:
-		state = STATE_PATROL	
+func _update_state() -> void:
+	if (player.global_position - global_position).length() < 100:
+		state = STATE_PATROL
+	else:
+		state = STATE_SLEEP
 	
-	move_and_slide()
+func _handle_state(delta: float) -> void:
+	if !is_on_floor():
+		velocity.y += GRAVITY * delta
 		
+	match state:
+		STATE_PATROL:	
+			if !ray.is_colliding() and is_on_floor():
+				flip()
+		
+			velocity.x = speed
+			$AnimatedSprite2D.play("move")
+		STATE_SLEEP:
+			velocity.x = 0
+			$AnimatedSprite2D.play("sleep")
+		
+
+func _physics_process(delta: float) -> void:
+	_update_state()
+	_handle_state(delta)
+	move_and_slide()
 
 func flip():
 	facing_left = !facing_left
