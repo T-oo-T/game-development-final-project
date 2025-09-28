@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://d3053wi8v4dd5"]
+[gd_scene load_steps=12 format=4 uid="uid://d3053wi8v4dd5"]
 
 [ext_resource type="Script" uid="uid://iq7kopfy1d7y" path="res://Scripts/map.gd" id="1_4ouud"]
 [ext_resource type="Texture2D" uid="uid://d4cyvicdvhvg7" path="res://Assets/tilemap.png" id="2_wj3bj"]
 [ext_resource type="PackedScene" uid="uid://b8lppdth0a2ff" path="res://Scenes/player.tscn" id="3_ejlun"]
 [ext_resource type="PackedScene" uid="uid://wav13363e8m3" path="res://Scenes/portal.tscn" id="4_4ouud"]
+[ext_resource type="PackedScene" uid="uid://c5eqkl4qxymt1" path="res://Scenes/robo.tscn" id="5_8xhf6"]
+[ext_resource type="PackedScene" uid="uid://cyacni3r5c6wp" path="res://Scenes/spike.tscn" id="6_sqomd"]
+[ext_resource type="PackedScene" uid="uid://hmeyai6aii1" path="res://Scenes/flier.tscn" id="7_fc6d2"]
+[ext_resource type="PackedScene" uid="uid://bxsfb1x50qvke" path="res://Scenes/gun.tscn" id="8_sqomd"]
+[ext_resource type="PackedScene" uid="uid://v2c3fspwrw7a" path="res://Scenes/coin.tscn" id="9_fc6d2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
 texture = ExtResource("2_wj3bj")
@@ -27,13 +32,114 @@ sources/0 = SubResource("TileSetAtlasSource_26yhd")
 script = ExtResource("1_4ouud")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAD//wEAAAACAAAAAAD+/wEAAAACAAAAAAABAAEAAAACAAAAAAD9/wEAAAABAAAAAAACAAEAAAADAAAAAAD8/wMAAAADAAAAAAD7/wMAAAACAAAAAAD6/wMAAAACAAAAAAD5/wMAAAACAAAAAAD4/wMAAAACAAAAAAD3/wMAAAACAAAAAAD2/wMAAAABAAAAAAD1/wIAAAAAAAAAAAD3/wEAAAAAAAAAAAD3////AAAAAAAAAAD4//7/AAABAAAAAAD5//7/AAACAAAAAAD6//7/AAADAAAAAAD0/wAAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAACAAAAAAD//wEAAAACAAAAAAD+/wEAAAACAAAAAAABAAEAAAACAAAAAAD9/wEAAAABAAAAAAACAAEAAAADAAAAAAD8/wMAAAADAAAAAAD7/wMAAAACAAAAAAD6/wMAAAACAAAAAAD5/wMAAAACAAAAAAD4/wMAAAACAAAAAAD3/wMAAAACAAAAAAD2/wMAAAABAAAAAAD1/wIAAAAAAAAAAAD3/wEAAAAAAAAAAAD3////AAAAAAAAAAD4//7/AAABAAAAAAD5//7/AAACAAAAAAD6//7/AAADAAAAAAD0/wAAAAAAAAAAAAD8//3/AAABAAAAAAD9//3/AAACAAAAAAD+//3/AAACAAAAAAD///3/AAACAAAAAAAAAP3/AAACAAAAAAABAP3/AAADAAAAAAAEAP7/AAABAAAAAAAFAP7/AAACAAAAAAAGAP7/AAACAAAAAAAHAP7/AAACAAAAAAAIAP7/AAACAAAAAAAJAP7/AAADAAAAAAALAP3/AAABAAAAAAAMAP3/AAACAAAAAAANAP3/AAACAAAAAAAOAP3/AAACAAAAAAAPAP3/AAACAAAAAAAQAP3/AAACAAAAAAARAP3/AAACAAAAAAASAP3/AAADAAAAAAAUAPz/AAABAAAAAAAVAPz/AAACAAAAAAAWAPz/AAACAAAAAAAXAPz/AAACAAAAAAAYAPz/AAACAAAAAAAZAPz/AAADAAAAAAApAPz/AAAAAAAAAAAbAPz/AAABAAAAAAAgAPz/AAABAAAAAAAlAPz/AAABAAAAAAAdAPz/AAADAAAAAAAiAPz/AAADAAAAAAAnAPz/AAADAAAAAAAmAPz/AAACAAAAAAAcAPz/AAACAAAAAAAhAPz/AAACAAAAAAAtAP//AAABAAAAAAAuAP//AAACAAAAAAAvAP//AAACAAAAAAAwAP//AAACAAAAAAAxAP//AAACAAAAAAAyAP//AAADAAAAAAA0AP7/AAAAAAAAAAA3AP3/AAAAAAAAAAA6APz/AAAAAAAAAAA9APv/AAAAAAAAAAA+APr/AAAAAAAAAAA/APn/AAAAAAAAAAA8APj/AAAAAAAAAAA7APf/AAAAAAAAAAA6APb/AAAAAAAAAAA5APX/AAAAAAAAAAA4APT/AAAAAAAAAAA3APP/AAAAAAAAAAA2APL/AAADAAAAAAA1APL/AAACAAAAAAA0APL/AAACAAAAAAAzAPL/AAACAAAAAAAyAPL/AAACAAAAAAAxAPL/AAACAAAAAAAwAPL/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_58wgy")
 
 [node name="Player" parent="." instance=ExtResource("3_ejlun")]
 position = Vector2(1, 11)
 
 [node name="Portal" parent="." instance=ExtResource("4_4ouud")]
-position = Vector2(-101, -63)
+position = Vector2(875, -277)
+
+[node name="Robo" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(-118, 47)
+
+[node name="Robo5" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(215, -62)
+
+[node name="Robo7" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(326, -62)
+
+[node name="Robo8" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(603, -79)
+
+[node name="Robo10" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(513, -80)
+
+[node name="Robo11" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(898, -25)
+
+[node name="Robo12" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(917, -260)
+
+[node name="Robo9" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(696, -81)
+
+[node name="Robo4" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(-121, -44)
+
+[node name="Robo2" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(14, -61)
+
+[node name="Robo3" parent="." instance=ExtResource("5_8xhf6")]
+position = Vector2(170, -43)
+
+[node name="Spike" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(102, -44)
+
+[node name="Spike4" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(142, -44)
+
+[node name="Spike6" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(1070, -170)
+
+[node name="Spike7" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(1035, -206)
+
+[node name="Spike8" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(999, -243)
+
+[node name="Spike2" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(-81, 46)
+
+[node name="Spike3" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(-81, 46)
+
+[node name="Spike5" parent="." instance=ExtResource("6_sqomd")]
+position = Vector2(-81, 46)
+
+[node name="Flier" parent="." instance=ExtResource("7_fc6d2")]
+position = Vector2(-67, -53)
+collision_layer = 0
+
+[node name="Flier2" parent="." instance=ExtResource("7_fc6d2")]
+position = Vector2(239, -8)
+
+[node name="Flier3" parent="." instance=ExtResource("7_fc6d2")]
+position = Vector2(297, -9)
+
+[node name="Flier4" parent="." instance=ExtResource("7_fc6d2")]
+position = Vector2(555, -22)
+
+[node name="Flier5" parent="." instance=ExtResource("7_fc6d2")]
+position = Vector2(818, 36)
+
+[node name="Flier6" parent="." instance=ExtResource("7_fc6d2")]
+position = Vector2(852, 41)
+
+[node name="Flier7" parent="." instance=ExtResource("7_fc6d2")]
+position = Vector2(884, 42)
+
+[node name="Gun" parent="." instance=ExtResource("8_sqomd")]
+position = Vector2(374, -77)
+
+[node name="Coin" parent="." instance=ExtResource("9_fc6d2")]
+position = Vector2(-153, 12)
+
+[node name="Coin2" parent="." instance=ExtResource("9_fc6d2")]
+position = Vector2(122, -41)
+
+[node name="Coin3" parent="." instance=ExtResource("9_fc6d2")]
+position = Vector2(432, -77)
+
+[node name="Coin4" parent="." instance=ExtResource("9_fc6d2")]
+position = Vector2(747, -77)
+
+[node name="Coin5" parent="." instance=ExtResource("9_fc6d2")]
+position = Vector2(801, -68)
+
+[node name="Coin6" parent="." instance=ExtResource("9_fc6d2")]
+position = Vector2(839, -25)
 
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]
+[connection signal="body_entered" from="Gun" to="." method="_on_gun_body_entered"]
