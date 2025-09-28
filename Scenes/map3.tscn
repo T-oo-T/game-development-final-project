@@ -34,6 +34,6 @@ tile_set = SubResource("TileSet_58wgy")
 position = Vector2(1, 11)
 
 [node name="Portal" parent="." instance=ExtResource("4_4ouud")]
-position = Vector2(-101, -62)
+position = Vector2(-101, -63)
 
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

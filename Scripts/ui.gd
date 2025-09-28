@@ -20,3 +20,6 @@ func set_lives(lives: int) -> void:
 
 func set_bullet_count(bullet_count: int) -> void:
 	$BulletCount/Label.text = str(bullet_count)
+
+func set_elapsed_time(elapsed_time: float) -> void:
+	$Time.text = "Time: %3.1f" %elapsed_time

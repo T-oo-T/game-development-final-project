@@ -8,13 +8,13 @@ const MAPS = [
 
 var current_level_index: int
 var current_level
+var prev_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_level = null	
 	current_level_index = 0
 	_load_level(current_level_index)
-	print("???")
 	Sound.play("main_music")
 	
 func _load_level(level_idx: int) -> void:
@@ -30,6 +30,21 @@ func _load_level(level_idx: int) -> void:
 	current_level.update_bullet_count.connect(_update_bullet_count)
 	current_level.game_over.connect(_game_over)
 	add_child(current_level)
+	
+	# start timer
+	prev_time = Time.get_unix_time_from_system()
+	var timer = Timer.new()
+	timer.autostart = true
+	timer.wait_time = 1.0 / 60.0
+	timer.timeout.connect(_foo)
+	timer.start()
+	add_child(timer)
+	
+	
+func _foo() -> void:
+	var current_time = Time.get_unix_time_from_system()
+	var elapsed_time = current_time - prev_time
+	$UI.set_elapsed_time(elapsed_time)
 	
 func _game_over() -> void:
 	current_level_index = 0

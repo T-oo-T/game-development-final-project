@@ -69,3 +69,25 @@ text = "0"
 position = Vector2(1881, 1052)
 scale = Vector2(4, 4)
 texture = ExtResource("3_nf4gj")
+
+[node name="Time" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 181.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0.917264, 0.807098, 0.113599, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Time: 0"
+
+[node name="Best time" type="Label" parent="."]
+offset_left = 13.0
+offset_top = 68.0
+offset_right = 286.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0.917264, 0.807098, 0.113599, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Best time: 0"

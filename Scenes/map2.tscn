@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d1v7opce8rrmk"]
+[gd_scene load_steps=10 format=4 uid="uid://d1v7opce8rrmk"]
 
 [ext_resource type="Texture2D" uid="uid://d4cyvicdvhvg7" path="res://Assets/tilemap.png" id="1_adok8"]
 [ext_resource type="Script" uid="uid://iq7kopfy1d7y" path="res://Scripts/map.gd" id="1_g12hm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://v2c3fspwrw7a" path="res://Scenes/coin.tscn" id="5_henqf"]
 [ext_resource type="PackedScene" uid="uid://bxsfb1x50qvke" path="res://Scenes/gun.tscn" id="6_v28fx"]
 [ext_resource type="PackedScene" uid="uid://wav13363e8m3" path="res://Scenes/portal.tscn" id="6_wesmn"]
+[ext_resource type="PackedScene" uid="uid://hmeyai6aii1" path="res://Scenes/flier.tscn" id="7_wesmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
 texture = ExtResource("1_adok8")
@@ -47,6 +48,9 @@ position = Vector2(-117, 31)
 
 [node name="Portal" parent="." instance=ExtResource("6_wesmn")]
 position = Vector2(99, -61)
+
+[node name="Flier" parent="." instance=ExtResource("7_wesmn")]
+position = Vector2(-127, -9)
 
 [connection signal="body_entered" from="Gun" to="." method="_on_gun_body_entered"]
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]
