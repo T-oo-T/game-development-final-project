@@ -51,6 +51,7 @@ position = Vector2(99, -61)
 
 [node name="Flier" parent="." instance=ExtResource("7_wesmn")]
 position = Vector2(-127, -9)
+collision_mask = 0
 
 [connection signal="body_entered" from="Gun" to="." method="_on_gun_body_entered"]
 [connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

@@ -16,7 +16,15 @@ func _physics_process(delta: float) -> void:
 	var towardsPlayer = player.global_position - global_position
 	
 	if state == STATE_CHASE:
-		var direction = Vector2.UP if is_on_wall() else towardsPlayer.normalized()
+		var direction
+		
+		if is_on_ceiling():
+			direction = Vector2.DOWN
+		elif is_on_wall():
+			direction = Vector2.UP
+		else:
+			direction = towardsPlayer.normalized()
+			
 		velocity.x = direction[0] * speed
 		velocity.y = direction[1] * speed
 	elif towardsPlayer.length() < 50:

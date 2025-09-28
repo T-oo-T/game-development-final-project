@@ -15,7 +15,7 @@ func _ready() -> void:
 	current_level = null	
 	current_level_index = 0
 	_load_level(current_level_index)
-	Sound.play("main_music")
+	#Sound.play("main_music")
 	
 func _load_level(level_idx: int) -> void:
 	# remove old level if it exists
