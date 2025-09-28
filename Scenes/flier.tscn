@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://hmeyai6aii1"]
+
+[ext_resource type="Script" uid="uid://dtkhhite4h6rv" path="res://Scripts/flier.gd" id="1_gmjtr"]
+[ext_resource type="Texture2D" uid="uid://cpqcarfacjap3" path="res://Assets/Enemies/flier.png" id="2_klkja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxr6s"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w7is"]
+size = Vector2(16, 16)
+
+[node name="Flier" type="CharacterBody2D"]
+collision_layer = 8
+motion_mode = 1
+script = ExtResource("1_gmjtr")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_klkja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hxr6s")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_6w7is")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
