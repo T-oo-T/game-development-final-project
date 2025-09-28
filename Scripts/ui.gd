@@ -23,3 +23,11 @@ func set_bullet_count(bullet_count: int) -> void:
 
 func set_elapsed_time(elapsed_time: float) -> void:
 	$Time.text = "Time: %3.1f" %elapsed_time
+
+func show_stats() -> void:
+	var stats = Stats.get_stats()
+	
+	$Victory/Map_1_time.text = "Map 1: %3.1f" %stats[0]
+	$Victory/Map_2_time.text = "Map 2: %3.1f" %stats[1]
+	$Victory/Map_3_time.text = "Map 3: %3.1f" %stats[2]
+	$Victory.visible = true

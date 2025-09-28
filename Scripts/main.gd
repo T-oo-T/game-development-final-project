@@ -6,14 +6,19 @@ const MAPS = [
 	preload("res://Scenes/map3.tscn"),
 ]
 
+const VICTORY_SCENE = preload("res://Scenes/victory.tscn")
+
 var current_level_index: int
 var current_level
 var start_time: float
+var game_timer: Timer
+var elapsed_time: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_level = null	
-	current_level_index = 0
+	current_level_index = 2
+	elapsed_time = 0
 	_load_level(current_level_index)
 	#Sound.play("main_music")
 	
@@ -33,17 +38,17 @@ func _load_level(level_idx: int) -> void:
 	
 	# start timer
 	start_time = Time.get_unix_time_from_system()
-	var timer = Timer.new()
-	timer.autostart = true
-	timer.wait_time = 1.0 / 60.0
-	timer.timeout.connect(_update_elapsed_time)
-	timer.start()
-	add_child(timer)
+	game_timer = Timer.new()
+	game_timer.autostart = true
+	game_timer.wait_time = 1.0 / 60.0
+	game_timer.timeout.connect(_update_elapsed_time)
+	game_timer.start()
+	add_child(game_timer)
 	
 	
 func _update_elapsed_time() -> void:
 	var current_time = Time.get_unix_time_from_system()
-	var elapsed_time = current_time - start_time
+	elapsed_time = current_time - start_time
 	$UI.set_elapsed_time(elapsed_time)
 	
 func _game_over() -> void:
@@ -60,10 +65,13 @@ func _update_lives(lives) -> void:
 	$UI.set_lives(lives)
 
 func _on_player_reached_portal() -> void:
-	current_level_index += 1
-	
-	if current_level_index == MAPS.size():
-		print("you win the game!")
+	Stats.set_time(current_level_index, elapsed_time)
+		
+	if current_level_index == MAPS.size() - 1:
+		current_level.queue_free()
+		game_timer.stop()
+		$UI.show_stats()
 	else:
 		# use call_deferred to get rid of warning
+		current_level_index += 1
 		call_deferred("_load_level", current_level_index)

@@ -91,3 +91,51 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Best time: 0"
+
+[node name="Victory" type="ColorRect" parent="."]
+visible = false
+offset_left = 557.0
+offset_top = 77.0
+offset_right = 1346.0
+offset_bottom = 902.0
+color = Color(0.0627451, 1, 1, 1)
+
+[node name="Label" type="Label" parent="Victory"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 30.0
+offset_right = 694.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "You win the game!"
+
+[node name="Map_1_time" type="Label" parent="Victory"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 157.0
+offset_right = 694.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Map 1:"
+
+[node name="Map_2_time" type="Label" parent="Victory"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 251.0
+offset_right = 694.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Map 2:"
+
+[node name="Map_3_time" type="Label" parent="Victory"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 341.0
+offset_right = 694.0
+offset_bottom = 437.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Map 3:"
