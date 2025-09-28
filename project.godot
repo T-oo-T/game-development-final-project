@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Sound="*res://Scenes/sound.tscn"
-Stats="*res://Scripts/stats.gd"
 
 [display]
 

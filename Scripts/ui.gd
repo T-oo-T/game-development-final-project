@@ -1,11 +1,8 @@
 class_name UI extends CanvasLayer
 
+signal restart_game
+
 # TODO: make UI and background scale when maximizing game
-# TODO: Gamer can see how fast she passes the level
-# TODO: There are various maps with _increasing_ difficulty
-# TODO: The enemies have “some intelligence” (state machine is enough)
-# TODO: All the settings and game records (high score / TOP10, passed levels, etc) are stored in a save file(s)
-# TODO: Shader effects are used to improve the visual style and immersion
 # TODO: Music adapts to game situations (e.g. the health level is lower, music is more intensive)
 func set_score(score: int) -> void:
 	$Score/Label.text = str(score)
@@ -24,10 +21,27 @@ func set_bullet_count(bullet_count: int) -> void:
 func set_elapsed_time(elapsed_time: float) -> void:
 	$Time.text = "Time: %3.1f" %elapsed_time
 
-func show_stats() -> void:
-	var stats = Stats.get_stats()
+func set_best_time(elapsed_time: float) -> void:
+	$"Best time".text = "Best time: %3.1f" %elapsed_time
 	
-	$Victory/Map_1_time.text = "Map 1: %3.1f" %stats[0]
-	$Victory/Map_2_time.text = "Map 2: %3.1f" %stats[1]
-	$Victory/Map_3_time.text = "Map 3: %3.1f" %stats[2]
+func is_approx(a: float, b: float) -> bool:
+	return abs(a - b) < 0.0001
+
+func show_stats(current_times, best_times) -> void:	
+	$Victory/Map_1_time.text = "Map 1: %3.1f" %current_times[0]
+	if is_approx(current_times[0], best_times[0]):
+		$Victory/Map_1_time.text += " (new record!)"
+	$Victory/Map_2_time.text = "Map 2: %3.1f" %current_times[1]
+	if is_approx(current_times[1], best_times[1]):
+		$Victory/Map_2_time.text += " (new record!)"
+	$Victory/Map_3_time.text = "Map 3: %3.1f" %current_times[2]
+	if is_approx(current_times[2], best_times[2]):
+		$Victory/Map_3_time.text += " (new record!)"
+	
 	$Victory.visible = true
+
+func hide_stats() -> void:
+	$Victory.visible = false
+
+func _on_restart_pressed() -> void:
+	restart_game.emit()
