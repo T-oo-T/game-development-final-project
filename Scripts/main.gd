@@ -90,7 +90,8 @@ func _update_score(score) -> void:
 func _update_lives(lives) -> void:
 	$UI.set_lives(lives)
 
-func _on_player_reached_portal() -> void:
+func _on_player_reached_portal(all_coins_collected) -> void:
+	Gamestate.map_stats[current_level_index] = all_coins_collected
 	current_times[current_level_index] = elapsed_time
 		
 	if current_level_index == MAPS.size() - 1:
@@ -103,7 +104,7 @@ func _on_player_reached_portal() -> void:
 		
 		var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 		file.store_var(best_times)
-		$UI.show_stats(current_times, best_times)
+		$UI.show_stats(current_times, best_times, Gamestate.map_stats)
 	else:
 		# use call_deferred to get rid of warning
 		current_level_index += 1

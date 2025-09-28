@@ -27,16 +27,14 @@ func set_best_time(elapsed_time: float) -> void:
 func is_approx(a: float, b: float) -> bool:
 	return abs(a - b) < 0.0001
 
-func show_stats(current_times, best_times) -> void:	
-	$Victory/Map_1_time.text = "Map 1: %3.1f" %current_times[0]
-	if is_approx(current_times[0], best_times[0]):
-		$Victory/Map_1_time.text += " (new record!)"
-	$Victory/Map_2_time.text = "Map 2: %3.1f" %current_times[1]
-	if is_approx(current_times[1], best_times[1]):
-		$Victory/Map_2_time.text += " (new record!)"
-	$Victory/Map_3_time.text = "Map 3: %3.1f" %current_times[2]
-	if is_approx(current_times[2], best_times[2]):
-		$Victory/Map_3_time.text += " (new record!)"
+func show_stats(current_times, best_times, map_stats) -> void:	
+	var elements = [$Victory/Map_1_time, $Victory/Map_2_time, $Victory/Map_3_time] 
+	for i in range(elements.size()):
+		elements[i].text = "Map 1: %3.1f" %current_times[i]
+		if is_approx(current_times[i], best_times[i]):
+			elements[i].text += " (new record!)"
+		if map_stats[i]:
+			elements[i].text += ", perfect finish!"
 	
 	$Victory.visible = true
 
