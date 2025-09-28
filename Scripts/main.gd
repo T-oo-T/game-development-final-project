@@ -74,7 +74,9 @@ func _restart_game() -> void:
 	
 func _on_player_died() -> void:
 	if (Gamestate.lives == 0):
-		_restart_game()
+		current_level.queue_free()
+		remove_child(game_timer)
+		$UI.show_game_over()
 	else:
 		Gamestate.lives -= 1
 		_load_level(current_level_index)
@@ -110,4 +112,5 @@ func _on_player_reached_portal() -> void:
 
 func _on_ui_restart_game() -> void:
 	$UI.hide_stats()
+	$UI.hide_game_over()
 	_restart_game()	

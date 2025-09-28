@@ -94,10 +94,8 @@ text = "Best time: 0"
 
 [node name="Victory" type="ColorRect" parent="."]
 visible = false
-offset_left = 294.0
-offset_top = 77.0
-offset_right = 1716.0
-offset_bottom = 902.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0.0627451, 1, 1, 1)
 
 [node name="Label" type="Label" parent="Victory"]
@@ -149,4 +147,30 @@ offset_bottom = 662.0
 theme_override_font_sizes/font_size = 70
 text = "Play again"
 
+[node name="Gameover" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0627451, 1, 1, 1)
+
+[node name="Label" type="Label" parent="Gameover"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 30.0
+offset_right = 694.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "Game over!"
+
+[node name="Restart" type="Button" parent="Gameover"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 526.0
+offset_right = 593.0
+offset_bottom = 662.0
+theme_override_font_sizes/font_size = 70
+text = "Play again"
+
 [connection signal="pressed" from="Victory/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Gameover/Restart" to="." method="_on_restart_pressed"]

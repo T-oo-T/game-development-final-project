@@ -40,6 +40,12 @@ func show_stats(current_times, best_times) -> void:
 	
 	$Victory.visible = true
 
+func show_game_over() -> void:
+	$Gameover.visible = true
+	
+func hide_game_over() -> void:
+	$Gameover.visible = false
+
 func hide_stats() -> void:
 	$Victory.visible = false
 
