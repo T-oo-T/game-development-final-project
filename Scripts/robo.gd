@@ -6,29 +6,30 @@ var facing_left := true
 
 var GRAVITY := float(ProjectSettings.get_setting("physics/2d/default_gravity"))
 var player: CharacterBody2D
-
+var state: int
+var STATE_SLEEP = 0
+var STATE_PATROL = 1
+	
+	
 func _ready() -> void:
+	state = STATE_SLEEP
 	$AnimatedSprite2D.play("sleep")
 	player = get_parent().get_children().filter(func (child) -> bool:
 		return child is Player
 	)[0]
 	
 func _physics_process(delta: float) -> void:
-	var distance = (player.global_position - global_position).length()
-	var player_near = distance < 100
-	
-	if !is_on_floor():
-		velocity.y += GRAVITY * delta
-	
-	if !ray.is_colliding() and is_on_floor():
-		flip()
-	
-	if player_near:
+	if state == STATE_PATROL:
+		if !is_on_floor():
+			velocity.y += GRAVITY * delta
+		
+		if !ray.is_colliding() and is_on_floor():
+			flip()
+		
 		velocity.x = speed
 		$AnimatedSprite2D.play("move")
-	else:
-		velocity.x = 0
-		$AnimatedSprite2D.play("sleep")
+	elif (player.global_position - global_position).length() < 100:
+		state = STATE_PATROL	
 	
 	move_and_slide()
 		
