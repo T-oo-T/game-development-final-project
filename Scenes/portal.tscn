@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://wav13363e8m3"]
+
+[ext_resource type="Texture2D" uid="uid://c6g0s72hlxodx" path="res://Assets/Environment/door_open_top.png" id="1_oi2tk"]
+[ext_resource type="Texture2D" uid="uid://dtpt5tiyhov08" path="res://icon.svg" id="1_uwyjv"]
+[ext_resource type="Shader" uid="uid://caejydac16s3c" path="res://Assets/portal.gdshader" id="4_cqy4h"]
+[ext_resource type="Texture2D" uid="uid://b4dey0mp08jo8" path="res://Assets/Environment/doorOpen.png" id="4_uwyjv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8lpw3"]
+shader = ExtResource("4_cqy4h")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwyjv"]
+size = Vector2(12, 23)
+
+[node name="Portal" type="Area2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5.0
+offset_top = 6.0
+offset_right = 5.0
+offset_bottom = 25.0
+color = Color(0.847059, 0.317647, 0.270588, 1)
+
+[node name="Shader" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_8lpw3")
+position = Vector2(2.38419e-07, 14)
+scale = Vector2(0.078125, 0.171875)
+texture = ExtResource("1_uwyjv")
+
+[node name="DoorTop" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_oi2tk")
+
+[node name="DoorFrame" type="Sprite2D" parent="."]
+position = Vector2(0, 18)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_uwyjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_uwyjv")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://iq7kopfy1d7y" path="res://Scripts/map.gd" id="1_4ouud"]
 [ext_resource type="Texture2D" uid="uid://d4cyvicdvhvg7" path="res://Assets/tilemap.png" id="2_wj3bj"]
 [ext_resource type="PackedScene" uid="uid://b8lppdth0a2ff" path="res://Scenes/player.tscn" id="3_ejlun"]
-[ext_resource type="PackedScene" uid="uid://yyc52bpuceih" path="res://Scenes/flag.tscn" id="4_8xhf6"]
+[ext_resource type="PackedScene" uid="uid://wav13363e8m3" path="res://Scenes/portal.tscn" id="4_4ouud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
 texture = ExtResource("2_wj3bj")
@@ -33,7 +33,7 @@ tile_set = SubResource("TileSet_58wgy")
 [node name="Player" parent="." instance=ExtResource("3_ejlun")]
 position = Vector2(1, 11)
 
-[node name="Flag" parent="." instance=ExtResource("4_8xhf6")]
-position = Vector2(-99, -45)
+[node name="Portal" parent="." instance=ExtResource("4_4ouud")]
+position = Vector2(-101, -62)
 
-[connection signal="body_entered" from="Flag" to="." method="_on_flag_body_entered"]
+[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

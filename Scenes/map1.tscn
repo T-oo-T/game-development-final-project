@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://d4cyvicdvhvg7" path="res://Assets/tilemap.png" id="1_ci6au"]
 [ext_resource type="Script" uid="uid://iq7kopfy1d7y" path="res://Scripts/map.gd" id="1_xgpx1"]
 [ext_resource type="PackedScene" uid="uid://b8lppdth0a2ff" path="res://Scenes/player.tscn" id="2_26yhd"]
-[ext_resource type="PackedScene" uid="uid://yyc52bpuceih" path="res://Scenes/flag.tscn" id="4_0650q"]
 [ext_resource type="PackedScene" uid="uid://v2c3fspwrw7a" path="res://Scenes/coin.tscn" id="5_0650q"]
 [ext_resource type="PackedScene" uid="uid://c5eqkl4qxymt1" path="res://Scenes/robo.tscn" id="6_rxi31"]
 [ext_resource type="PackedScene" uid="uid://bxsfb1x50qvke" path="res://Scenes/gun.tscn" id="7_73eik"]
 [ext_resource type="PackedScene" uid="uid://cyacni3r5c6wp" path="res://Scenes/spike.tscn" id="8_wouuh"]
 [ext_resource type="PackedScene" uid="uid://hmeyai6aii1" path="res://Scenes/flier.tscn" id="9_jemul"]
+[ext_resource type="PackedScene" uid="uid://wav13363e8m3" path="res://Scenes/portal.tscn" id="10_si05j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
 texture = ExtResource("1_ci6au")
@@ -42,9 +42,6 @@ tile_set = SubResource("TileSet_58wgy")
 [node name="Player" parent="." instance=ExtResource("2_26yhd")]
 position = Vector2(1, 11)
 
-[node name="Flag" parent="." instance=ExtResource("4_0650q")]
-position = Vector2(245, -62)
-
 [node name="Coin" parent="." instance=ExtResource("5_0650q")]
 position = Vector2(-98, -43)
 
@@ -69,6 +66,9 @@ position = Vector2(-81, -27)
 [node name="Flier" parent="." instance=ExtResource("9_jemul")]
 position = Vector2(48, -52)
 
+[node name="Portal" parent="." instance=ExtResource("10_si05j")]
+position = Vector2(238, -79)
+
 [connection signal="update_bullet_count" from="." to="." method="_on_update_bullet_count"]
-[connection signal="body_entered" from="Flag" to="." method="_on_flag_body_entered"]
 [connection signal="body_entered" from="Gun" to="." method="_on_gun_body_entered"]
+[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

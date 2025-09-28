@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://d4cyvicdvhvg7" path="res://Assets/tilemap.png" id="1_adok8"]
 [ext_resource type="Script" uid="uid://iq7kopfy1d7y" path="res://Scripts/map.gd" id="1_g12hm"]
 [ext_resource type="PackedScene" uid="uid://b8lppdth0a2ff" path="res://Scenes/player.tscn" id="2_b8njt"]
-[ext_resource type="PackedScene" uid="uid://yyc52bpuceih" path="res://Scenes/flag.tscn" id="3_b8njt"]
 [ext_resource type="PackedScene" uid="uid://v2c3fspwrw7a" path="res://Scenes/coin.tscn" id="5_henqf"]
 [ext_resource type="PackedScene" uid="uid://bxsfb1x50qvke" path="res://Scenes/gun.tscn" id="6_v28fx"]
+[ext_resource type="PackedScene" uid="uid://wav13363e8m3" path="res://Scenes/portal.tscn" id="6_wesmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26yhd"]
 texture = ExtResource("1_adok8")
@@ -36,9 +36,6 @@ tile_set = SubResource("TileSet_58wgy")
 [node name="Player" parent="." instance=ExtResource("2_b8njt")]
 position = Vector2(1, 11)
 
-[node name="Flag" parent="." instance=ExtResource("3_b8njt")]
-position = Vector2(99, -44)
-
 [node name="Coin" parent="." instance=ExtResource("5_henqf")]
 position = Vector2(63, -7)
 
@@ -48,5 +45,8 @@ position = Vector2(-43, 11)
 [node name="Gun" parent="." instance=ExtResource("6_v28fx")]
 position = Vector2(-117, 31)
 
-[connection signal="body_entered" from="Flag" to="." method="_on_flag_body_entered"]
+[node name="Portal" parent="." instance=ExtResource("6_wesmn")]
+position = Vector2(99, -61)
+
 [connection signal="body_entered" from="Gun" to="." method="_on_gun_body_entered"]
+[connection signal="body_entered" from="Portal" to="." method="_on_portal_body_entered"]

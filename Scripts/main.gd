@@ -24,7 +24,7 @@ func _load_level(level_idx: int) -> void:
 	
 	# load new level
 	current_level = MAPS[level_idx].instantiate()
-	current_level.player_reached_flag.connect(_on_player_reached_flag)
+	current_level.player_reached_portal.connect(_on_player_reached_portal)
 	current_level.update_score.connect(_update_score)
 	current_level.update_lives.connect(_update_lives)
 	current_level.update_bullet_count.connect(_update_bullet_count)
@@ -44,7 +44,7 @@ func _update_score(score) -> void:
 func _update_lives(lives) -> void:
 	$UI.set_lives(lives)
 
-func _on_player_reached_flag() -> void:
+func _on_player_reached_portal() -> void:
 	current_level_index += 1
 	
 	if current_level_index == MAPS.size():
