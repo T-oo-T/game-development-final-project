@@ -20,7 +20,7 @@ const FILE_PATH = "user://stats.txt"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_level = null	
-	current_level_index = 1
+	current_level_index = 0
 	elapsed_time = 0
 	#print(OS.get_data_dir())
 	
