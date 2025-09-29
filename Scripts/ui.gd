@@ -30,7 +30,7 @@ func is_approx(a: float, b: float) -> bool:
 func show_stats(current_times, best_times, map_stats) -> void:	
 	var elements = [$Victory/Map_1_time, $Victory/Map_2_time, $Victory/Map_3_time] 
 	for i in range(elements.size()):
-		elements[i].text = "Map 1: %3.1f" %current_times[i]
+		elements[i].text = "Map " + str(i+1) + ": %3.1f" %current_times[i]
 		if is_approx(current_times[i], best_times[i]):
 			elements[i].text += " (new record!)"
 		if map_stats[i]:
